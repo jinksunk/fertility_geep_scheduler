@@ -1,0 +1,39 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.date-input {
+  margin-bottom: 1rem;
+}
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.calendar,
+.sidebar {
+  width: 45%;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+  .calendar,
+  .sidebar {
+    width: 100%;
+  }
+}
+
+.react-datepicker__day--highlighted-date {
+  background-color: lightblue !important;
+  color: white !important;
+}
+
+.react-datepicker__day--highlighted-date:hover {
+  background-color: darkblue !important;
+  color: white !important;
+}
