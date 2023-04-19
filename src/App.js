@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
+import subDays from "date-fns/subDays";
+import subMonths from "date-fns/subMonths";
 import 'react-datepicker/dist/react-datepicker.css';
 import './App.css';
 
 function App() {
+  // endDate is the date chosen by the user, either in the calendar picker, or date picker
   const [endDate, setEndDate] = useState(new Date());
+
+  // calculatedDates is the array of significant dates to back-calculate along with the display class
   const calculatedDates = [
-    { label: '16 days before', date: new Date(endDate).setDate(endDate.getDate() - 16) },
-    { label: '23 days before', date: new Date(endDate).setDate(endDate.getDate() - 23) },
-    { label: '28 days before', date: new Date(endDate).setDate(endDate.getDate() - 28) },
+    { label: 'FET date (day 20)', date: 0, className: 'react-datepicker__day--highlighted-pink' },
+    { label: 'Patch start (day 1)', date: 19, className: 'react-datepicker__day--highlighted-yellow' },
+    { label: 'Lupron overlap', date: 26, className: 'react-datepicker__day--highlighted-blue' },
+    { label: 'Lupron start', date: 31, className: 'react-datepicker__day--highlighted-green' },
   ];
 
+  // We return the html snippet to display the date picker, calendar, and list of dates
   return (
     <div className="App">
       <h1>Fertility GEEP Protocol</h1>
@@ -30,17 +37,17 @@ function App() {
             selected={endDate}
             onChange={(date) => setEndDate(date)}
             monthsShown={2}
-            highlightDates={calculatedDates.map((d) => ({...d, className: 'highlighted-date'}))}
+            highlightDates={calculatedDates.map(d => ({[d.className]: [subDays(endDate, d.date)]}))}
             dateFormat="MMMM d, yyyy"
+            initialMonth={subMonths(endDate, 1)}
           />
 
         </div>
         <div className="sidebar">
           <h2>Dates List</h2>
-          <p>End Date: {endDate.toLocaleDateString()}</p>
-          {calculatedDates.map((d, i) => (
-            <p key={i}>
-              {d.label}: {new Date(d.date).toLocaleDateString()}
+          {calculatedDates.sort((a, b) => b.date - a.date).map((d, i) => (
+            <p key={i} class={d.className}>
+              {d.label}: {subDays(endDate, d.date).toLocaleDateString()}
             </p>
           ))}
         </div>

@@ -37,3 +37,43 @@
   background-color: darkblue !important;
   color: white !important;
 }
+
+.react-datepicker__day--highlighted-pink {
+  background-color: pink !important;
+  color: white !important;
+}
+
+.react-datepicker__day--highlighted-pink:hover {
+  background-color: deeppink !important;
+  color: white !important;
+}
+
+.react-datepicker__day--highlighted-yellow {
+  background-color: yellow !important;
+  color: black !important;
+}
+
+.react-datepicker__day--highlighted-yellow:hover {
+  background-color: gold !important;
+  color: black !important;
+}
+
+.react-datepicker__day--highlighted-blue {
+  background-color: dodgerblue !important;
+  color: white !important;
+}
+
+.react-datepicker__day--highlighted-blue:hover {
+  background-color: royalblue !important;
+  color: white !important;
+}
+
+.react-datepicker__day--highlighted-green {
+  background-color: mediumseagreen !important;
+  color: white !important;
+}
+
+.react-datepicker__day--highlighted-green:hover {
+  background-color: seagreen !important;
+  color: white !important;
+}
