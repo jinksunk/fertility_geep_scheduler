@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
 import subDays from "date-fns/subDays";
 import subMonths from "date-fns/subMonths";
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './App.css';
 
@@ -13,7 +13,7 @@ function App() {
   const calculatedDates = [
     { label: 'FET date (day 20)', date: 0, className: 'react-datepicker__day--highlighted-pink' },
     { label: 'Patch start (day 1)', date: 19, className: 'react-datepicker__day--highlighted-yellow' },
-    { label: 'Lupron overlap', date: 26, className: 'react-datepicker__day--highlighted-blue' },
+    { label: 'Lupron overlap', date: 27, className: 'react-datepicker__day--highlighted-blue' },
     { label: 'Lupron start', date: 31, className: 'react-datepicker__day--highlighted-green' },
   ];
 
